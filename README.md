@@ -1,7 +1,8 @@
 # LRU Cache Visualizer
 
 A dynamic web application built with HTML, CSS, and JavaScript to visually demonstrate the working mechanism of a Least Recently Used (LRU) Cache. This tool allows users to interact with a simulated cache, observing cache hits, misses, evictions, and the internal state of the cache in real-time.
-
+##Access the website
+click here -->https://lru-cache-visualizer-five.vercel.app/
 ## Features
 
 - **Interactive Operations:** Perform `GET` and `PUT` operations on the cache.
