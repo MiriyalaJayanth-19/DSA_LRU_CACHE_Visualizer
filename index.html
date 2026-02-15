@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LRU Cache Visualizer</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
+
 <body>
   <div class="background-container">
         <div id="stars1"></div>
@@ -16,48 +17,104 @@
     <div class="container">
         <h1>LRU Cache Visualizer</h1>
 
-        <div class="controls">
-            <div class="input-group">
-                <label for="capacity">Cache Capacity:</label>
-                <input type="number" id="capacity" value="5" min="1">
-                <button id="setCapacityBtn">Set Capacity</button>
-            </div>
-            
-            <div class="input-group">
-                <label for="keyInput">Key:</label>
-                <input type="number" id="keyInput" placeholder="Enter key" min="1">
-            </div>
-            
-            <div class="input-group">
-                <label for="valueInput">Value:</label>
-                <input type="text" id="valueInput" placeholder="Enter value">
-            </div>
-
-            <div class="button-group">
-                <button id="getBtn" class="action-btn">GET</button>
-                <button id="putBtn" class="action-btn primary-btn">PUT</button>
-                <button id="resetBtn" class="action-btn secondary-btn">Reset Cache</button>
+        <div class="top-bar">
+            <div class="theme-toggle" aria-label="Theme toggle">
+                <span class="theme-label">Dark</span>
+                <label class="switch">
+                    <input id="themeToggle" type="checkbox" aria-label="Toggle light theme">
+                    <span class="slider"></span>
+                </label>
+                <span class="theme-label">Light</span>
             </div>
         </div>
 
-        <div class="visualization-area">
-            <h2>Cache State (MRU &larr; LRU)</h2>
-            <div class="cache-display" id="cacheDisplay">
-                <div class="empty-message">Cache is empty.</div>
+        <div class="top-tabs" role="tablist" aria-label="Visualizer Switcher">
+            <button id="tabLru" class="tab-btn is-active" type="button" role="tab" aria-selected="true">LRU Cache</button>
+            <button id="tabNQueens" class="tab-btn" type="button" role="tab" aria-selected="false">N-Queens</button>
+        </div>
+
+        <div id="sectionLru" class="visualizer-section is-active">
+            <div class="controls">
+                <div class="input-group">
+                    <label for="capacity">Cache Capacity:</label>
+                    <input type="number" id="capacity" value="5" min="1">
+                    <button id="setCapacityBtn">Set Capacity</button>
+                </div>
+            
+                <div class="input-group">
+                    <label for="keyInput">Key:</label>
+                    <input type="number" id="keyInput" placeholder="Enter key" min="1">
+                </div>
+            
+                <div class="input-group">
+                    <label for="valueInput">Value:</label>
+                    <input type="text" id="valueInput" placeholder="Enter value">
+                </div>
+
+                <div class="button-group">
+                    <button id="getBtn" class="action-btn">GET</button>
+                    <button id="putBtn" class="action-btn primary-btn">PUT</button>
+                    <button id="resetBtn" class="action-btn secondary-btn">Reset Cache</button>
+                </div>
             </div>
-            <div class="legend">
-                <span><span class="legend-box hit"></span>Cache Hit</span>
-                <span><span class="legend-box miss"></span>Cache Miss</span>
-                <span><span class="legend-box evicted"></span>Evicted Item</span>
-                <span><span class="legend-box new-item"></span>New Item</span>
+
+            <div class="visualization-area">
+                <h2>Cache State (MRU &larr; LRU)</h2>
+                <div class="cache-display" id="cacheDisplay">
+                    <div class="empty-message">Cache is empty.</div>
+                </div>
+                <div class="legend">
+                    <span><span class="legend-box hit"></span>Cache Hit</span>
+                    <span><span class="legend-box miss"></span>Cache Miss</span>
+                    <span><span class="legend-box evicted"></span>Evicted Item</span>
+                    <span><span class="legend-box new-item"></span>New Item</span>
+                </div>
+            </div>
+
+            <div class="log-area">
+                <h2>Activity Log</h2>
+                <div id="log" class="log-output"></div>
             </div>
         </div>
 
-        <div class="log-area">
-            <h2>Activity Log</h2>
-            <div id="log" class="log-output"></div>
+        <div id="sectionNQueens" class="visualizer-section">
+            <h2>N-Queens (Backtracking)</h2>
+
+            <div class="controls">
+                <div class="input-group">
+                    <label for="nqSize">Board Size (N):</label>
+                    <input type="number" id="nqSize" value="8" min="4" max="14">
+                </div>
+
+                <div class="input-group">
+                    <label for="nqSpeed">Speed (ms/step):</label>
+                    <input type="number" id="nqSpeed" value="120" min="10" max="2000">
+                </div>
+
+                <div class="button-group">
+                    <button id="nqStartBtn" class="action-btn primary-btn">Start</button>
+                    <button id="nqPauseBtn" class="action-btn">Pause</button>
+                    <button id="nqStepBtn" class="action-btn">Step</button>
+                    <button id="nqResetBtn" class="action-btn secondary-btn">Reset</button>
+                </div>
+            </div>
+
+            <div class="visualization-area">
+                <h2>Board</h2>
+                <div class="nq-board-wrap">
+                    <div id="nqBoard" class="nq-board" aria-label="N-Queens board"></div>
+                </div>
+            </div>
+
+            <div class="log-area">
+                <h2>Backtracking Log</h2>
+                <div id="nqLog" class="log-output"></div>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="scripts/lru_cache.js"></script>
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/tabs.js"></script>
+    <script src="scripts/n_queens.js"></script>
 </body>
 </html>
