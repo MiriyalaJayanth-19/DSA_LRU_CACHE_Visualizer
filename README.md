@@ -1,17 +1,20 @@
-# DSA LRU Cache Visualizer
+# DSA Visualizer
+- This repo will help in visualizing complex data structure algorithms
 
-The DSA LRU Cache Visualizer is a tool that illustrates how the LRU Cache algorithm works through a graphical interface. Users can visualize the cache's behavior with a series of operations, understanding how items are added, removed, and found in the cache.
+## 🗂️ LRU Cache
+- An LRU (Least Recently Used) Cache stores a fixed number of items and evicts the least recently accessed one when full.
+- It supports fast  and  operations, typically in O(1) time using a hash map + doubly linked list.
+- This ensures frequently used data stays available while older, unused data is discarded automatically.
 
-## N-Queens Backtracking Visualization
-
-The N-Queens problem is a classic algorithmic problem that seeks to place N queens on an N×N chessboard such that no two queens threaten each other. The visualization shows the algorithm's backtracking process as it explores various configurations of queen placements on the board. Users can step through each stage of the algorithm, observing how queens are placed and removed until a solution is found or all possibilities are exhausted.
+## ♛ N‑Queens Problem
+- Place n queens on an n × n chessboard so that no two queens attack each other.
+-	Queens attack along rows, columns, and diagonals, so placements must avoid conflicts.
+- The goal is to find all valid arrangements of queens that satisfy these constraints.
+-	Commonly solved using backtracking algorithms with pruning for efficiency
 
 ## Features
-- Interactive LRU Cache operations
-- Step-by-step visualization of LRU Cache algorithm
-- Real-time cache state updates
-- User-configurable cache size
-- Interactive N-Queens problem solver
-- Visualization of backtracking steps in real-time
-- Ability to modify N value and see different solutions
+- Interactive visualization
+- Light/ Dark theme
+
+
 
